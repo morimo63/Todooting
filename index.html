@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Todooting</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="header_title">
+            Todooting
+        </h1>
+    </header>
+
+    <div id="app">
+        <h3>タスクの追加</h3>
+        <!-- 追加用入力フォーム -->
+        <input type="text" v-model="textInput">
+
+        <!-- シューティング難易度設定用 -->
+        <!-- シューティングが実装されるまでコメントアウト -->
+        <!-- <select v-model="selected">
+            <option disabled value="">難易度を選択して下さい</option>
+            <option v-for="option in options" v-bind:value="option.difficult" v-bind:key="option.difficult">
+                {{ option.difficult }}
+            </option>
+        </select> -->
+
+        <!-- 追加ボタン -->
+        <button v-on:click="doAdd">追加</button>
+        <br>
+
+        <!-- Todoリスト表示部 -->
+        <table>
+            <thead v-pre>
+                <tr>
+                <th class="num">No.</th>
+                <th class="comment">タスク</th>
+                <!-- <th class="diff">難易度</th> -->
+                <th class="button"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    v-for="task in todos"
+                    v-bind:key="task.num">
+                <th>{{ task.num }}</th>
+                <td>{{ task.name }}</td>
+                <!-- <td>{{ task.diff }}</td> -->
+                <td class="button">
+                    <button v-on:click="doRemove(task)">
+                    削除
+                    </button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- デバッグ用 -->
+        <!-- <ul>
+            <li v-for="data in todos">
+                {{data}}
+            </li>
+        </ul>
+        <p>-------------</p>
+        <ul>
+            <li v-for="one in onepoints">
+                {{one}}
+            </li>
+        </ul> -->
+
+        <!-- 確認:箇条書き -->
+        <!-- <ul>
+            <li v-for="task in todos" >
+                {{ task.num }} : {{ task.name}}
+            </li>
+        </ul> -->
+    </div>
+
+    <footer>
+        <div class="footer_copylight">© morimoto.</div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
