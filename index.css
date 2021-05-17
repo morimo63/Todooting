@@ -1,0 +1,4 @@
+html, body{
+    /* スクロールができないように設定 */
+    overflow: hidden;
+}

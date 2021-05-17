@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Todooting</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header>
@@ -12,74 +12,52 @@
         </h1>
     </header>
 
-    <div id="app">
+    <div>
         <h3>タスクの追加</h3>
         <!-- 追加用入力フォーム -->
-        <input type="text" v-model="textInput">
+        <input type="text" size="30" id="inputTask">
 
         <!-- シューティング難易度設定用 -->
-        <!-- シューティングが実装されるまでコメントアウト -->
-        <!-- <select v-model="selected">
-            <option disabled value="">難易度を選択して下さい</option>
-            <option v-for="option in options" v-bind:value="option.difficult" v-bind:key="option.difficult">
-                {{ option.difficult }}
-            </option>
-        </select> -->
+        <select id="difficulty">
+            <option disabled selected value="zero">難易度を選択して下さい</option>
+            <option value="diff-1">1</option>
+            <option value="diff-2">2</option>
+            <option value="diff-3">3</option>
+            <option value="diff-4">4</option>
+            <option value="diff-5">5</option>
+        </select>
 
-        <!-- 追加ボタン -->
-        <button v-on:click="doAdd">追加</button>
+        <!-- タスク追加ボタン -->
+        <button type="button" id="addTaskButton">追加</button>
         <br>
 
         <!-- Todoリスト表示部 -->
-        <table>
-            <thead v-pre>
+        <table id="taskTable">
+            <!-- タスクヘッダ -->
+            <thead>
                 <tr>
-                <th class="num">No.</th>
-                <th class="comment">タスク</th>
-                <!-- <th class="diff">難易度</th> -->
-                <th class="button"></th>
+                    <th class="num">No.</th>
+                    <th class="comment">タスク</th>
+                    <th class="diff">難易度</th>
+                    <!-- 削除ボタン用 -->
+                    <th></th>
                 </tr>
             </thead>
+            <!-- タスク内容 -->
             <tbody>
-                <tr
-                    v-for="task in todos"
-                    v-bind:key="task.num">
-                <th>{{ task.num }}</th>
-                <td>{{ task.name }}</td>
-                <!-- <td>{{ task.diff }}</td> -->
-                <td class="button">
-                    <button v-on:click="doRemove(task)">
-                    削除
-                    </button>
-                </td>
-                </tr>
             </tbody>
         </table>
 
-        <!-- デバッグ用 -->
-        <!-- <ul>
-            <li v-for="data in todos">
-                {{data}}
-            </li>
-        </ul>
-        <p>-------------</p>
-        <ul>
-            <li v-for="one in onepoints">
-                {{one}}
-            </li>
-        </ul> -->
-
-        <!-- 確認:箇条書き -->
-        <!-- <ul>
-            <li v-for="task in todos" >
-                {{ task.num }} : {{ task.name}}
-            </li>
-        </ul> -->
+        <!-- ゲーム部 -->
+        <!-- <div>
+            <canvas id="gameCanvas" style="background-color:gray;"></canvas>
+        </div> -->
     </div>
 
     <footer>
         <div class="footer_copylight">© morimoto.</div>
     </footer>
     <script src="index.js"></script>
+    <!-- <script src="game.js"></script> -->
 </body>
 </html>
