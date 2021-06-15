@@ -16,11 +16,6 @@ Todoタスクを楽しみながら取り組む
 進んで難しいタスクに取り組みたくなるようなTodoリストの作成  
 *ゲーム性(shootingゲーム)を持たせた* Todoリストの作成
 
-## 使用技術
-- HTML & CSS
-- JavaScript
-- タスク管理はブラウザのLocalStorageを使用
-
 ## 使用方法
 - https://todooting.web.app/ にアクセス
 
@@ -28,6 +23,13 @@ Todoタスクを楽しみながら取り組む
 - Google Chrome (バージョン:91.0.4472.106)
 - Safari (バージョン:14.0)
 - Firefox (バージョン:89.0)
+
+## デモ
+### 【タスク追加】
+![イメージ1](https://user-images.githubusercontent.com/81407420/122077322-98ad9280-ce36-11eb-95f4-f010c31a74e8.GIF)
+
+### 【シューティング】
+![イメージ2](https://user-images.githubusercontent.com/81407420/122077786-0063dd80-ce37-11eb-88f5-67b803bfd10b.GIF)
 
 ## 更新予定
 - 経験値システムの導入
