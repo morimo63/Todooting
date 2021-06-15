@@ -37,7 +37,8 @@ let lastTime = Date.now();
 //ゲームスピード(ms)
 const GAME_SPEED = 1000/60;
 
-let dotImage;
+let dotImage = new Image();
+dotImage.src = "char.png";
 
 let key = [];
 
@@ -61,8 +62,6 @@ function Start(diff){
 function gameInit(){
     player = new Player();
     enemy = new Enemy(enemyDiff);
-    dotImage = new Image();
-    dotImage.src = "char.png";
     intervalId = setInterval(gameLoop,GAME_SPEED);
     console.log("ID"+intervalId);
 }

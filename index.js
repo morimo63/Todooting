@@ -34,7 +34,7 @@ addButton.addEventListener('click', function() {
 
         // 削除ボタン
         newCell = newRow.insertCell(-1);
-        newCell.innerHTML = '<input type="button" id="dltButton" value="削除" onclick="onClickDelete(this);" />';
+        newCell.innerHTML = '<input type="button" id="dltButton" value="完了" onclick="onClickDelete(this);" />';
 
         // localStorage登録処理
         registerTask(rowNumber,text,txt);

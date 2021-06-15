@@ -22,5 +22,9 @@ Todoタスクを楽しみながら取り組む
 - タスク管理はブラウザのLocalStorageを使用
 
 ## 使用方法
-- にアクセスする
+- https://todooting.web.app/ にアクセス
 
+## 動作確認済ブラウザ
+- Google Chrome (バージョン:91.0.4472.106)
+- Safari (バージョン:14.0)
+- Firefox (バージョン:89.0)
