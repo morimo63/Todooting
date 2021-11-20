@@ -4,19 +4,21 @@ let taskNumber = 0;
 
 // ページ読み込み時にlocalStorageを読み込むメソッド
 function loadTask(){
-    if(localStorage.length != 0){
+    getExp();
+    if(localStorage.length > 1){
         const table = document.getElementById('taskTableBody');
         for(let i=0;i<localStorage.length;i++){
             let data = localStorage.getItem("task"+i);
             let newRow = table.insertRow();
             // タスクナンバー
             const th = document.createElement('th');
-            th.appendChild(document.createTextNode(JSON.parse(data)[0]));
+            let newText = document.createTextNode(JSON.parse(data)[0]);
+            th.appendChild(newText);
             newRow.appendChild(th);
 
             // タスク内容
             let newCell = newRow.insertCell(-1);
-            let newText = document.createTextNode(JSON.parse(data)[1]);
+            newText = document.createTextNode(JSON.parse(data)[1]);
             newCell.appendChild(newText);
 
             // 難易度
@@ -28,8 +30,11 @@ function loadTask(){
             newCell = newRow.insertCell(-1);
             newCell.innerHTML = '<input type="button" id="dltButton" value="完了" onclick="onClickDelete(this);" />';
         }
-        rowNumber = localStorage.length;
-        taskNumber = localStorage.length;
+
+        rowNumber = localStorage.length-1;
+        taskNumber = localStorage.length-1;
+        console.log(rowNumber);
+        console.log(taskNumber);
     }
 }
 
@@ -58,11 +63,25 @@ function removeTask(num){
     }
 
     // 一時的に取得していたtaskをlocalに入れ直す
-    for(let i=num;i<num+data.length;i++){
+    for(let i=num;i<num+data.length-1;i++){
         let emp = [i+1,JSON.parse(data[i-num])[1],JSON.parse(data[i-num])[2]];
         let json = JSON.stringify(emp, undefined, 1);
-        localStorage.setItem("task"+i,json);
+        localStorage.setItem("task"+i, json);
     }
 
     taskNumber--;
+}
+
+// localstrageの経験値変更メソッド
+function updateStatus(exp,level){
+    let data = [exp,level];
+    let json = JSON.stringify(data, undefined, 1);
+    localStorage.setItem("status", json);
+}
+
+// localstrageから経験値を取得し表示するメソッド
+function getExp(){
+    let data = localStorage.getItem("status");
+    document.getElementById('exp').innerHTML = JSON.parse(data)[0];
+    document.getElementById('level').innerHTML = JSON.parse(data)[1];
 }

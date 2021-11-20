@@ -140,13 +140,14 @@ function gameLoop(){
         t = "Push 'R' key to restart !";
         w = con.measureText(t).width;
         x = CANVAS_W/2 - w/2;
-        y = CANVAS_H/2 - 20+30;
+        y = CANVAS_H/2 - 20+40;
         con.fillText(t,x,y);
-        t = "Push 'D' key to decrease the difficulty and restart !";
-        w = con.measureText(t).width;
-        x = CANVAS_W/2 - w/2;
-        y = CANVAS_H/2 - 20+50;
-        con.fillText(t,x,y);
+        // 難易度を下げて再戦
+        // t = "Push 'D' key to decrease the difficulty and restart !";
+        // w = con.measureText(t).width;
+        // x = CANVAS_W/2 - w/2;
+        // y = CANVAS_H/2 - 20+60;
+        // con.fillText(t,x,y);
     }
 
     lifeDisplay(con);

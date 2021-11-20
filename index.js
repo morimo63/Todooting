@@ -47,6 +47,8 @@ addButton.addEventListener('click', function() {
 
 // タスクを削除する処理
 function removeRow(obj){
+    expProcess(obj);
+
     const tr = obj.parentNode.parentNode;
     const index = tr.sectionRowIndex;
     tr.parentNode.deleteRow(index);
@@ -77,4 +79,20 @@ function sleep(msec) {
     return new Promise(function(resolve) {
        setTimeout(function(){resolve()}, msec);
     })
+}
+
+// 経験値計算処理
+function expProcess(obj){
+    let exp = Number(document.getElementById('exp').textContent);
+    let level = Number(document.getElementById('level').textContent);
+    const difficulty = obj.parentNode.parentNode.children[2].textContent;
+    exp += Number(difficulty);
+    if(exp >= 7){
+        exp -= 7;
+        level++;
+    }
+    document.getElementById('exp').innerHTML = exp;
+    document.getElementById('level').innerHTML = level;
+
+    updateStatus(exp,level);
 }

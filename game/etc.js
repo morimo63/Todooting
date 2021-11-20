@@ -11,14 +11,14 @@ document.onkeydown = function(e){
         enemyShots2 = [];
         gameoverJudge = false;
     }
-    if(gameoverJudge && e.keyCode == 68){// 難易度変更
-        if(enemyDiff != 1) enemyDiff--;
-        delete player;
-        player = new Player();
-        delete enemy;
-        enemy = new Enemy(enemyDiff);
-        gameoverJudge = false;
-    }
+    // if(gameoverJudge && e.keyCode == 68){// 難易度変更
+    //     if(enemyDiff != 1) enemyDiff--;
+    //     delete player;
+    //     player = new Player();
+    //     delete enemy;
+    //     enemy = new Enemy(enemyDiff);
+    //     gameoverJudge = false;
+    // }
 }
 document.onkeyup = function(e){
     key[e.keyCode] =false;
